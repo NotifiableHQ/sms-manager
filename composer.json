@@ -42,6 +42,11 @@
         }
     },
     "scripts": {
+        "review": [
+            "@php vendor/bin/pint",
+            "@php vendor/bin/phpstan analyse",
+            "@document-facade"
+        ],
         "document-facade": [
             "@php -f vendor/bin/facade.php -- Notifiable\\\\Support\\\\Facades\\\\Sms",
             "@php -f vendor/bin/facade.php -- --lint Notifiable\\\\Support\\\\Facades\\\\Sms"
