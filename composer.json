@@ -35,6 +35,16 @@
             "Notifiable\\": "src/Notifiable/"
         }
     },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Notifiable\\Sms\\SmsServiceProvider"
+            ],
+            "aliases": {
+                "Debugbar": "Notifiable\\Support\\Facades\\Sms"
+            }
+        }
+    },
     "repositories": {
         "facade-documenter": {
             "type": "vcs",
