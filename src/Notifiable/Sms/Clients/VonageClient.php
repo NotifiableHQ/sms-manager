@@ -1,10 +1,11 @@
 <?php
 
-namespace Notifiable\SmsManager\Clients;
+namespace Notifiable\Sms\Clients;
 
-use Notifiable\SmsManager\Contracts\Client as SmsClient;
-use Notifiable\SmsManager\Message;
-use Notifiable\SmsManager\SentMessage;
+use InvalidArgumentException;
+use Notifiable\Contracts\Client as SmsClient;
+use Notifiable\Sms\Message;
+use Notifiable\Sms\SentMessage;
 use Psr\Http\Client\ClientExceptionInterface;
 use Vonage\Client;
 use Vonage\Client\Credentials\Basic;
@@ -18,7 +19,7 @@ class VonageClient implements SmsClient
     public function __construct(
         protected string $apiKey,
         protected string $apiSecret,
-        protected string $from
+        protected ?string $from = null
     ) {
         $this->client = new Client(new Basic($this->apiKey, $this->apiSecret));
     }
@@ -31,6 +32,10 @@ class VonageClient implements SmsClient
     public function send(Message $message): SentMessage
     {
         $from = $message->from() ?? $this->from;
+
+        if (is_null($from)) {
+            throw new InvalidArgumentException('From number is required');
+        }
 
         $vonageMessage = $this->client->sms()->send(
             new SMS($message->to(), $from, $message->message())

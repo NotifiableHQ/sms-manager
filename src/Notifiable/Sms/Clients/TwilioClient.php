@@ -1,10 +1,11 @@
 <?php
 
-namespace Notifiable\SmsManager\Clients;
+namespace Notifiable\Sms\Clients;
 
-use Notifiable\SmsManager\Contracts\Client as SmsClient;
-use Notifiable\SmsManager\Message;
-use Notifiable\SmsManager\SentMessage;
+use InvalidArgumentException;
+use Notifiable\Contracts\Client as SmsClient;
+use Notifiable\Sms\Message;
+use Notifiable\Sms\SentMessage;
 use Twilio\Exceptions\ConfigurationException;
 use Twilio\Exceptions\TwilioException;
 use Twilio\Rest\Client;
@@ -19,7 +20,7 @@ class TwilioClient implements SmsClient
     public function __construct(
         protected string $accountSid,
         protected string $authToken,
-        protected string $from
+        protected ?string $from = null
     ) {
         $this->client = new Client($accountSid, $authToken);
     }
@@ -31,6 +32,10 @@ class TwilioClient implements SmsClient
     public function send(Message $message): SentMessage
     {
         $from = $message->from() ?? $this->from;
+
+        if (is_null($from)) {
+            throw new InvalidArgumentException('From number is required');
+        }
 
         $twilioMessage = $this->client->messages->create(
             $message->to(),

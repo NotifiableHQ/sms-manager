@@ -1,8 +1,8 @@
 <?php
 
-namespace Notifiable\SmsManager\Contracts;
+namespace Notifiable\Contracts;
 
-use Notifiable\SmsManager\Messenger;
+use Notifiable\Sms\Messenger;
 
 interface Factory
 {

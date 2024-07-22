@@ -1,11 +1,11 @@
 <?php
 
-namespace Notifiable\SmsManager;
+namespace Notifiable\Sms;
 
-use Notifiable\SmsManager\Contracts\Client;
-use Notifiable\SmsManager\Events\MessageSending;
-use Notifiable\SmsManager\Events\MessageSent;
 use Illuminate\Contracts\Events\Dispatcher;
+use Notifiable\Contracts\Client;
+use Notifiable\Sms\Events\MessageSending;
+use Notifiable\Sms\Events\MessageSent;
 
 class Messenger
 {
@@ -18,8 +18,7 @@ class Messenger
     public function __construct(
         protected Client $client,
         protected ?Dispatcher $events = null
-    ) {
-    }
+    ) {}
 
     public function from(?string $from): static
     {

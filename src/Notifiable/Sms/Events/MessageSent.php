@@ -1,13 +1,12 @@
 <?php
 
-namespace Notifiable\SmsManager\Events;
+namespace Notifiable\Sms\Events;
 
-use Notifiable\SmsManager\SentMessage;
+use Notifiable\Sms\SentMessage;
 
 class MessageSent
 {
     public function __construct(
         public SentMessage $message
-    ) {
-    }
+    ) {}
 }

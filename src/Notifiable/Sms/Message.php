@@ -1,6 +1,6 @@
 <?php
 
-namespace Notifiable\SmsManager;
+namespace Notifiable\Sms;
 
 class Message
 {
@@ -8,8 +8,7 @@ class Message
         protected ?string $from,
         protected string $to,
         protected string $message
-    ) {
-    }
+    ) {}
 
     public function from(): ?string
     {

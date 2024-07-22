@@ -7,10 +7,9 @@
         "notification"
     ],
     "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Notifiable\\SmsManager\\": "src/"
-        }
+    "support": {
+        "issues": "https://github.com/notifiablehq/sms-manager/issues",
+        "source": "https://github.com/notifiablehq/sms-manager"
     },
     "authors": [
         {
@@ -26,6 +25,26 @@
         "illuminate/contracts": "^11"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.1"
+        "orchestra/testbench": "^9.1",
+        "laravel/facade-documenter": "dev-main",
+        "laravel/pint": "^1.16",
+        "larastan/larastan": "^2.9"
+    },
+    "autoload": {
+        "psr-4": {
+            "Notifiable\\": "src/Notifiable/"
+        }
+    },
+    "repositories": {
+        "facade-documenter": {
+            "type": "vcs",
+            "url": "git@github.com:laravel/facade-documenter.git"
+        }
+    },
+    "scripts": {
+        "document-facade": [
+            "@php -f vendor/bin/facade.php -- Notifiable\\\\Support\\\\Facades\\\\Sms",
+            "@php -f vendor/bin/facade.php -- --lint Notifiable\\\\Support\\\\Facades\\\\Sms"
+        ]
     }
 }

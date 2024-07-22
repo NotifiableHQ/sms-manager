@@ -1,6 +1,6 @@
 <?php
 
-namespace Notifiable\SmsManager;
+namespace Notifiable\Sms;
 
 class SentMessage
 {
@@ -9,6 +9,5 @@ class SentMessage
         protected string $from,
         protected string $to,
         protected string $message
-    ) {
-    }
+    ) {}
 }
