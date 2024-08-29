@@ -6,10 +6,10 @@ use Illuminate\Support\ServiceProvider;
 
 class SmsServiceProvider extends ServiceProvider
 {
-    //    /** @var array<string, string> */
-    //    public array $singletons = [
-    //        'sms.manager' => SmsManager::class,
-    //    ];
+        /** @var array<string, string> */
+        public array $singletons = [
+            'sms.manager' => SmsManager::class,
+        ];
 
     public function boot(): void
     {
