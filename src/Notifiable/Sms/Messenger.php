@@ -16,8 +16,8 @@ class Messenger
     protected string $message;
 
     public function __construct(
-        protected Client $client,
-        protected ?Dispatcher $events = null
+        public Client $client,
+        protected ?Dispatcher $events = null,
     ) {}
 
     public function from(?string $from): static

@@ -13,7 +13,7 @@ return [
    | "clients" array. Examples of each type of client are provided.
    |
    */
-    'default' => env('SMS_CLIENT', 'twilio'),
+    'default' => env('SMS_CLIENT', 'log'),
 
     /*
     |--------------------------------------------------------------------------
@@ -28,26 +28,26 @@ return [
     |
     */
 
-    'clients' => [
+    'messengers' => [
 
         'log' => [
-            'provider' => 'log',
+            'client' => 'log',
             'channel' => env('SMS_LOG_CHANNEL'),
         ],
 
         'array' => [
-            'provider' => 'array',
+            'client' => 'array',
         ],
 
         'twilio' => [
-            'provider' => 'twilio',
+            'client' => 'twilio',
             'account_sid' => env('SMS_TWILIO_ACCOUNT_SID'),
             'auth_token' => env('SMS_TWILIO_AUTH_TOKEN'),
             'from' => env('SMS_TWILIO_FROM'),
         ],
 
         'vonage' => [
-            'provider' => 'vonage',
+            'client' => 'vonage',
             'api_key ' => env('SMS_VONAGE_API_KEY'),
             'api_secret' => env('SMS_VONAGE_API_SECRET'),
             'from' => env('SMS_VONAGE_FROM'),

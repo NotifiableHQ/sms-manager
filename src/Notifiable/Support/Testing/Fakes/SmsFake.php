@@ -2,4 +2,10 @@
 
 namespace Notifiable\Support\Testing\Fakes;
 
-class SmsFake {}
+class SmsFake
+{
+    public static function assertEventFired(): bool
+    {
+        return true;
+    }
+}

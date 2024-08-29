@@ -35,13 +35,13 @@ class SmsManager extends MultipleInstanceManager implements Factory
     public function getInstanceConfig($name): array
     {
         /** @var array<string, mixed> $config */
-        $config = $this->config->get("sms.clients.{$name}");
+        $config = $this->config->get("sms.messengers.{$name}");
 
         return $config;
     }
 
     #[\Override]
-    public function client(?string $name = null): Messenger
+    public function messenger(?string $name = null): Messenger
     {
         /** @var Messenger $instance */
         $instance = $this->instance($name);
@@ -63,7 +63,7 @@ class SmsManager extends MultipleInstanceManager implements Factory
         );
 
         /** @var Dispatcher|null $dispatcher */
-        $dispatcher = $this->get('events');
+        $dispatcher = $this->app->get('events');
 
         return new Messenger($client, $dispatcher);
     }
@@ -80,7 +80,7 @@ class SmsManager extends MultipleInstanceManager implements Factory
         );
 
         /** @var Dispatcher|null $dispatcher */
-        $dispatcher = $this->get('events');
+        $dispatcher = $this->app->get('events');
 
         return new Messenger($client, $dispatcher);
     }

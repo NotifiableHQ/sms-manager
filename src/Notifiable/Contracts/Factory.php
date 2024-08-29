@@ -6,5 +6,5 @@ use Notifiable\Sms\Messenger;
 
 interface Factory
 {
-    public function client(string $name): Messenger;
+    public function messenger(string $name): Messenger;
 }

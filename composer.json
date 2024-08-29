@@ -35,6 +35,11 @@
             "Notifiable\\": "src/Notifiable/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Test\\": "tests/"
+        }
+    },
     "extra": {
         "laravel": {
             "providers": [
