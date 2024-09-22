@@ -17,11 +17,11 @@ class VonageClient implements SmsClient
     protected Client $client;
 
     public function __construct(
-        protected string $apiKey,
-        protected string $apiSecret,
+        protected string  $key,
+        protected string  $secret,
         protected ?string $from = null
     ) {
-        $this->client = new Client(new Basic($this->apiKey, $this->apiSecret));
+        $this->client = new Client(new Basic($this->key, $this->secret));
     }
 
     /**

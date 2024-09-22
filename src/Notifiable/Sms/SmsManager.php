@@ -74,8 +74,8 @@ class SmsManager extends MultipleInstanceManager implements Factory
     public function createVonageClient(array $config): Messenger
     {
         $client = new VonageClient(
-            $config['api_key'],
-            $config['api_secret'],
+            $config['key'],
+            $config['secret'],
             $config['from']
         );
 
