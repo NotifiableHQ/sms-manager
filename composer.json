@@ -18,17 +18,17 @@
         }
     ],
     "require": {
-        "php": "^8.2",
+        "php": "^8.3",
         "twilio/sdk": "^8.2",
         "vonage/client": "^4.0",
-        "illuminate/support": "^11",
-        "illuminate/contracts": "^11"
+        "illuminate/support": "^11.0 || ^12.0 || ^13.0",
+        "illuminate/contracts": "^11.0 || ^12.0 || ^13.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^9.1",
+        "orchestra/testbench": "^9.1 || ^10.1 || ^11.0",
         "laravel/facade-documenter": "dev-main",
         "laravel/pint": "^1.16",
-        "larastan/larastan": "^2.9"
+        "larastan/larastan": "^3.9"
     },
     "autoload": {
         "psr-4": {
@@ -46,7 +46,7 @@
                 "Notifiable\\Sms\\SmsServiceProvider"
             ],
             "aliases": {
-                "Debugbar": "Notifiable\\Support\\Facades\\Sms"
+                "Sms": "Notifiable\\Support\\Facades\\Sms"
             }
         }
     },

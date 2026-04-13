@@ -48,7 +48,7 @@ return [
 
         'vonage' => [
             'client' => 'vonage',
-            'key ' => env('SMS_VONAGE_KEY'),
+            'key' => env('SMS_VONAGE_KEY'),
             'secret' => env('SMS_VONAGE_SECRET'),
             'from' => env('SMS_VONAGE_FROM'),
         ],
